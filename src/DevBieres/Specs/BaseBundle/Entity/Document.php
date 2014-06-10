@@ -20,7 +20,7 @@ namespace DevBieres\Specs\BaseBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use JMS\Serializer\Annotation as JMS;
+//use JMS\Serializer\Annotation as JMS;
 
 use DevBieres\CommonBundle\Entity\EntityBase;
 
