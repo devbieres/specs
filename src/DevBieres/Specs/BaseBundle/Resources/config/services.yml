@@ -1,0 +1,50 @@
+services:
+    dvb.dbal.listener.postPersist:
+         class: DevBieres\Specs\BaseBundle\Listener\Listener
+         arguments:
+            - @service_container
+         tags:
+            - { name: doctrine.event_listener, event: postPersist }
+            - { name: doctrine.event_listener, event: postUpdate }
+            - { name: doctrine.event_listener, event: postRemove }
+
+    dvb.specs.version:
+        class: DevBieres\Specs\BaseBundle\Services\DocumentVersionService
+        calls:
+          - [ setEM, [  @doctrine.orm.entity_manager ] ]
+    dvb.specs.counter:
+        class: DevBieres\Specs\BaseBundle\Services\DocumentCounterService
+        calls:
+          - [ setEM, [  @doctrine.orm.entity_manager ] ]
+    dvb.specs.document:
+        class: DevBieres\Specs\BaseBundle\Services\DocumentService
+        calls:
+          - [ setEM, [  @doctrine.orm.entity_manager ] ]
+          - [ setVersionService, [ @dvb.specs.version ] ]
+          - [ setCounterService, [ @dvb.specs.counter ] ]
+    dvb.specs.actor:
+        class: DevBieres\Specs\BaseBundle\Services\ActorService
+        calls:
+          - [ setEM, [  @doctrine.orm.entity_manager ] ]
+          - [ setDocumentService, [ @dvb.specs.document ] ]
+    dvb.specs.fonction:
+        class: DevBieres\Specs\BaseBundle\Services\FonctionService
+        calls:
+          - [ setEM, [  @doctrine.orm.entity_manager ] ]
+    dvb.specs.rule:
+        class: DevBieres\Specs\BaseBundle\Services\RuleService
+        calls:
+          - [ setEM, [  @doctrine.orm.entity_manager ] ]
+
+    dvb.specs.entity:
+        class: DevBieres\Specs\BaseBundle\Services\EntityService
+        calls:
+          - [ setEM, [  @doctrine.orm.entity_manager ] ]
+    dvb.specs.entityfield:
+        class: DevBieres\Specs\BaseBundle\Services\EntityField
+        calls:
+          - [ setEM, [  @doctrine.orm.entity_manager ] ]
+    dvb.specs.entityfieldtype:
+        class: DevBieres\Specs\BaseBundle\Services\EntityFieldTypeService
+        calls:
+          - [ setEM, [  @doctrine.orm.entity_manager ] ]

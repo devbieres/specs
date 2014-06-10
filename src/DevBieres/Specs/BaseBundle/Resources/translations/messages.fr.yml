@@ -1,0 +1,21 @@
+actor:
+  field:
+     label: Libellé
+     description: Description
+app:
+   name: Spécifications
+document:
+   field:
+      label : Libellé
+fonction:
+   field:
+      code: Code
+      label: Libellé
+      description: Description
+rule:
+   field:
+      code: Code
+      label: Libellé
+      description: Description
+
+

@@ -1,0 +1,26 @@
+{% extends 'DevBieresSpecsDummyViewBundle::document.layout.html.twig' %}
+
+
+{% block doc_content %}
+<div class="row" >
+   <div class="col-md-12 text-right" >
+       <a class="btn btn-primary" 
+              href="{{ path('rule_new', { 'docid': document.id }) }}"
+		> 
+			{{ 'plus'|ico }} 
+        </a>
+   </div>
+</div>
+<div class="row" >
+   <div class="col-md-12" >
+        {{ 
+           include('DevBieresSpecsDummyViewBundle:Rule:list.html.twig',
+                         {
+                              cols : cols
+                         }
+            )
+        }}
+   </div>
+</div>
+
+{% endblock %}

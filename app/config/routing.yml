@@ -1,0 +1,7 @@
+dev_bieres_specs_dummy_view:
+    resource: "@DevBieresSpecsDummyViewBundle/Controller/"
+    type:     annotation
+    prefix:   /dummy
+
+
+

@@ -1,0 +1,19 @@
+actor:
+  createdVersion: Crée en
+  linkname: Acteur(s)
+  title: Acteur
+document:
+  title: Document(s)
+  version: Version
+fonction:
+  linkname: Fonctionnalité(s)
+  createdVersion: Crée en
+  title: Fonctionnalité
+rule:
+  linkname: RG(s)
+  createdVersion: Crée en
+  title: Règle de gestion
+entity:
+  linkname: Entités
+  createdVersion: Crée en
+  title: Entités

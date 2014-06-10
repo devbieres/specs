@@ -1,0 +1,14 @@
+<table class="table table-hover" >
+    {% for doc in cols %}
+       <tr>
+             <td> 
+                 <a href="{{path('document_show', { id:doc.id})}}" > {{ doc }} </a>
+             </td>
+             <td class="two-actions">
+                <a href="{{path('document_edit', { id:doc.id })}}" class="btn btn-primary" > {{ 'edit'|ico }} </a>
+                <a href="{{path('document_delete', { id:doc.id })}}" class="btn btn-primary" > {{ 'trash-o'|ico }} </a>
+             </td>
+       </tr>
+    {% endfor %}
+</table>
+

@@ -1,0 +1,16 @@
+<table class="table table-hover" >
+    {% for o in cols %}
+       <tr>
+             <td> 
+                 <a href="{{path('entity_edit', { docid:document.id, id:o.id})}}" > {{ o }} </a> 
+             </td>
+             <td>
+                 {{ 'entity.createdVersion'|trans }} : <strong> {{ o.versionCreated }} </strong>
+             </td>
+             <td class="one-action">
+                <a href="{{path('entity_delete', { docid:document.id, id:o.id })}}" class="btn btn-primary" > {{ 'trash-o'|ico }} </a>
+             </td>
+       </tr>
+    {% endfor %}
+</table>
+

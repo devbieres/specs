@@ -1,0 +1,56 @@
+{% extends 'DevBieresCommonBundle::layout.html.twig' %}
+
+{% block app_css %}
+    <link href="{{ asset("./bundles/devbieresspecsdummyview/css/dummy.css") }}" rel="stylesheet">
+{% endblock %}
+
+{% block app_content %}
+<div class="row" >
+   <div class="col-md-12" >
+       {% include 'DevBieresSpecsDummyViewBundle:Document:header.html.twig' %}
+   </div>
+</div>
+<div class="row" >
+   <div class="col-md-2" >
+       <ul class="nav nav-pills nav-stacked" >
+           <li class="{{ submenu=="edit" ? 'active' : '' }}" >
+              <a href="{{ path('document_edit', { 'id':document.id }) }}" > 
+                   {{ 'action.edit'|trans }} 
+              </a>
+           </li>
+           <li class="{{ submenu=="actor" ? 'active' : '' }}" >
+              <a href="{{ path('actors', { 'docid':document.id }) }}" > 
+                   {{ 'actor.linkname'|trans }}
+                   <span class="badge" > {{ document.counter ? document.counter.nbactors : 0 }} </span>
+              </a>
+           </li>
+           <li class="{{ submenu=="fonction" ? 'active' : '' }}" >
+              <a href="{{ path('fonctions', { 'docid':document.id }) }}" > 
+                   {{ 'fonction.linkname'|trans }} 
+                   <span class="badge" > {{ document.counter ? document.counter.nbfonctions : 0 }} </span>
+              </a>
+           </li>
+           <li class="{{ submenu=="rule" ? 'active' : '' }}" >
+              <a href="{{ path('rules', { 'docid':document.id }) }}" > 
+                   {{ 'rule.linkname'|trans }}
+                   <span class="badge" > {{ document.counter ? document.counter.nbrules : 0 }} </span>
+              </a>
+           </li>
+           <li class="{{ submenu=="entity" ? 'active' : '' }}" >
+              <a href="{{ path('entities', { 'docid':document.id }) }}" > 
+                   {{ 'entity.linkname'|trans }}
+                   <span class="badge" > {{ document.counter ? document.counter.nbentities : 0 }} </span>
+              </a>
+           </li>
+       </ul>
+       </ul>
+   </div>
+   <div class="col-md-10" >
+       {% block doc_content %}
+
+       {% endblock %}
+   </div>
+</div>
+
+{% endblock %}
+
